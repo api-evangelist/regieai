@@ -1,0 +1,19 @@
+generated: '2026-07-21'
+method: searched
+source: https://www.regie.ai/gdpr
+standards:
+- id: soc2
+  conforms: true
+  evidence: Regie.ai states it complies with SOC 2 security standards on its GDPR/compliance page.
+- id: gdpr
+  conforms: true
+  evidence: Regie.ai publishes a GDPR compliance page describing sub-processor and data-processing posture.
+- id: salesforce-appexchange-security
+  conforms: true
+  evidence: Regie.ai references AppExchange security certification for its Salesforce integration.
+compliance_program:
+  published: true
+  url: https://www.regie.ai/gdpr
+  certifications:
+  - SOC 2
+  - GDPR

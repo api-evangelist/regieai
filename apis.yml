@@ -1,8 +1,24 @@
 aid: regieai
+accessModel:
+  pricing: unknown
+  onboarding: approval
+  trial: false
+  try_now: false
+  public: false
+  label: Requires approval
+  confidence: medium
+  source: []
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/regieai.png
 name: Regie.ai
-description: 'Regie.ai is a company surfaced as a portfolio company of scale-venture-partners and added
-  to the API Evangelist network as a stub for enrichment. Sector: ai-apps. This profile is a lead awaiting
-  the enrichment pipeline.'
+description: 'Regie.ai is an AI-powered sales engagement platform that helps B2B sales
+  teams scale outbound without adding headcount. Its flagship product, RegieOne, unifies
+  AI agents with human reps to automate prospecting: lead research and enrichment,
+  personalized multichannel messaging (email, phone, LinkedIn), AI dialing (power
+  and parallel), dynamic lead prioritization from intent signals, sequence orchestration,
+  and CRM integration (Salesforce, Outreach). It serves SDRs, account executives,
+  sales leaders, and RevOps teams. Regie.ai is backed by Scale Venture Partners.'
 url: https://raw.githubusercontent.com/api-evangelist/regieai/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -12,10 +28,16 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
 tags:
 - Company
 - Ai Apps
+- Sales Engagement
+- Sales AI
+- Outbound
+- Prospecting
+- Revenue Operations
+- AI Agents
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -25,3 +47,37 @@ maintainers:
 common:
 - type: Website
   url: https://www.regie.ai/
+- type: Documentation
+  url: https://help.regie.ai/
+- type: Support
+  url: https://help.regie.ai/
+- type: Pricing
+  url: https://www.regie.ai/pricing
+- type: Blog
+  url: https://www.regie.ai/blog
+- type: SignUp
+  url: https://app.regie.ai/signin
+- type: Login
+  url: https://app.regie.ai/signin
+- type: TermsOfService
+  url: https://www.regie.ai/terms-and-conditions
+- type: PrivacyPolicy
+  url: https://www.regie.ai/privacy-policy
+- type: ChangeLog
+  url: https://www.regie.ai/changelog
+- type: ChangeLog
+  url: changelog/regieai-changelog.yml
+  name: Regie.ai product changelog (structured)
+- type: Compliance
+  url: https://www.regie.ai/gdpr
+- type: Conformance
+  url: conformance/regieai-conformance.yml
+  name: Regie.ai standards conformance
+- type: DomainSecurity
+  url: security/regieai-domain-security.yml
+  name: Regie.ai domain security posture
+x-enrichment:
+  date: '2026-07-21'
+  status: minimal
+  artifacts_added: 3
+  pass: local-v1

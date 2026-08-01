@@ -1,0 +1,21 @@
+generated: '2026-07-21'
+method: searched
+source: https://www.regie.ai/changelog
+scheme: dated
+product: RegieOne
+entries:
+- date: '2026-05-28'
+  highlights:
+  - Safer Salesforce trigger execution — prevents re-firing triggers for finished prospects, stopping incorrect status reversals in Salesforce.
+  - Faster agent launch and prospect touch visibility — new agents prioritize task generation; prospect pages show total touches instead of averages.
+  - Shareable agent drafts and audit logs — read-only draft sharing for team review before publishing, with comprehensive audit logging of all agent edits.
+- date: '2026-05-26'
+  highlights:
+  - Auto-open company websites on dialer connection.
+  - Enhanced inbound call handling with disposition support and call-history accuracy.
+- date: '2026-05-12'
+  highlights:
+  - Pickup-rate outbound number rotation enabled universally.
+  - Competitor activity dashboard classifying calls by dialer source (Regie, Outreach, Nooks, etc.).
+  - One-off email and LinkedIn tasks from the action bar without sequences.
+  - "Ask Regie in-app AI chat generally available workspace-wide with context awareness."
