@@ -1,0 +1,63 @@
+generated: '2026-08-14'
+method: searched
+source: >-
+  https://www.regie.ai/changelog, https://www.regie.ai/updates, https://www.regie.ai/gdpr,
+  https://www.regie.ai/terms-and-conditions, plus DNS/HTTP probes of status.regie.ai and
+  trust.regie.ai (2026-08-14)
+product: RegieOne
+versioning:
+  scheme: none-published
+  api_versioning: null
+  note: >-
+    Regie.ai ships a continuously-updated SaaS product and publishes no API version scheme.
+    Internal service hosts hint at versioned deployments (dialer-api-v2.regie.ai exists
+    alongside dialer-api.regie.ai) but nothing about versioning, upgrade paths or supported
+    versions is documented publicly.
+deprecation_policy:
+  published: false
+  sunset_header: unknown
+  deprecation_header: unknown
+  note: >-
+    No deprecation policy, no RFC 8594 Sunset/Deprecation header documentation, and no
+    end-of-life schedule is published on any public Regie.ai surface. Because no API is
+    documented, there is also no deprecated-operation set to derive.
+status_page:
+  published: false
+  url: null
+  evidence:
+  - url: https://status.regie.ai/
+    status: 000
+    note: DNS does not resolve
+  - url: https://trust.regie.ai/
+    status: 000
+    note: DNS does not resolve
+  note: >-
+    No status or uptime page was found on any Regie.ai host, in the site footer, or in the
+    sitemap (596 URLs). Uptime and incident history are not publicly reported.
+sla:
+  published: false
+  note: >-
+    No public SLA. Terms and Conditions are published at
+    https://www.regie.ai/terms-and-conditions; availability commitments, if any, are contracted
+    per customer and not disclosed.
+release_cadence:
+  channel: https://www.regie.ai/changelog
+  secondary_channel: https://www.regie.ai/updates
+  format: dated product-update posts grouped into Fixes and Improvements, tagged by area
+  entries_published: 25
+  most_recent: '2026-05-28'
+  observed_cadence: >-
+    Clustered releases roughly every two to four weeks; three separate posts were published on
+    2026-05-28 and the most recent prior batch on 2026-05-26 and 2026-05-12. No release has
+    been posted since 2026-05-28, a gap of roughly eleven weeks as of this probe.
+  breaking_changes_flagged: false
+data_lifecycle:
+  published: true
+  source: https://www.regie.ai/gdpr
+  breach_notification_window_days: 30
+  data_return_or_deletion_on_termination_days: 30
+  data_subject_request_window_days: 30
+  contact: ciso@regie.ai
+  note: >-
+    The GDPR page is the only place Regie.ai commits publicly to any lifecycle window. These are
+    data-protection commitments to customers and data subjects, not API lifecycle guarantees.

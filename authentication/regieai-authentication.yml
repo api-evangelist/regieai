@@ -1,0 +1,132 @@
+generated: '2026-08-14'
+method: probed
+source: >-
+  https://authenticate.regie.ai/.well-known/openid-configuration,
+  https://authkit.regie.ai/.well-known/openid-configuration, and live 401 responses from
+  mcp.regie.ai, sales-prod-api.regie.ai, agents-api.regie.ai (probed 2026-08-14)
+note: >-
+  Regie.ai publishes no OpenAPI and no public developer authentication documentation, so this
+  profile is assembled entirely from documents and error responses the company's own hosts
+  served to an anonymous client. Nothing here is inferred from marketing copy.
+schemes:
+- id: mcp-api-key
+  type: apiKey
+  in: header
+  name: x-api-key
+  applies_to: https://mcp.regie.ai
+  additional_identifiers:
+  - user ID
+  - workspace ID
+  evidence: >-
+    Anonymous requests return 401 "Missing required API key". Requests carrying an x-api-key
+    header return 401 "Missing required user ID or workspace ID", proving a two-stage check of
+    key plus workspace/user identity.
+  documented_publicly: false
+- id: backend-bearer
+  type: http
+  scheme: bearer
+  in: header
+  name: Authorization
+  applies_to:
+  - https://sales-prod-api.regie.ai
+  - https://agents-api.regie.ai
+  - https://dialer-api.regie.ai
+  - https://transcript-api.regie.ai
+  - https://user-management.regie.ai
+  - https://marketing-api.regie.ai
+  evidence: >-
+    Every non-health path on these hosts returns 401 "Authorization header not provided in the
+    request". These are the first-party application backends behind app.regie.ai, not a
+    published developer API.
+  documented_publicly: false
+- id: auth0-oidc
+  type: openIdConnect
+  openIdConnectUrl: https://authenticate.regie.ai/.well-known/openid-configuration
+  provider: Auth0
+  issuer: https://authenticate.regie.ai/
+  authorization_endpoint: https://authenticate.regie.ai/authorize
+  token_endpoint: https://authenticate.regie.ai/oauth/token
+  userinfo_endpoint: https://authenticate.regie.ai/userinfo
+  jwks_uri: https://authenticate.regie.ai/.well-known/jwks.json
+  registration_endpoint: https://authenticate.regie.ai/oidc/register
+  revocation_endpoint: https://authenticate.regie.ai/oauth/revoke
+  scopes_supported:
+  - openid
+  - profile
+  - offline_access
+  - name
+  - given_name
+  - family_name
+  - nickname
+  - email
+  - email_verified
+  - picture
+  - created_at
+  - identities
+  - phone
+  - address
+  grant_types_supported:
+  - client_credentials
+  - authorization_code
+  - refresh_token
+  - password
+  - implicit
+  - urn:ietf:params:oauth:grant-type:device_code
+  - urn:ietf:params:oauth:grant-type:token-exchange
+  - urn:ietf:params:oauth:grant-type:jwt-bearer
+  code_challenge_methods_supported:
+  - S256
+  - plain
+  token_endpoint_auth_methods_supported:
+  - client_secret_basic
+  - client_secret_post
+  - private_key_jwt
+  - none
+  applies_to: end-user sign-in to app.regie.ai (login/callback)
+  evidence: >-
+    app.regie.ai's application bundle points its login callback at
+    https://authenticate.regie.ai/login/callback; the tenant serves a full OIDC discovery
+    document at HTTP 200.
+  documented_publicly: false
+- id: workos-authkit-oidc
+  type: openIdConnect
+  openIdConnectUrl: https://authkit.regie.ai/.well-known/openid-configuration
+  provider: WorkOS AuthKit
+  issuer: https://authkit.regie.ai
+  authorization_endpoint: https://authkit.regie.ai/oauth2/authorize
+  token_endpoint: https://authkit.regie.ai/oauth2/token
+  userinfo_endpoint: https://authkit.regie.ai/oauth2/userinfo
+  introspection_endpoint: https://authkit.regie.ai/oauth2/introspection
+  jwks_uri: https://authkit.regie.ai/oauth2/jwks
+  device_authorization_endpoint: https://authkit.regie.ai/oauth2/device_authorization
+  scopes_supported:
+  - openid
+  - profile
+  - email
+  - offline_access
+  grant_types_supported:
+  - authorization_code
+  - client_credentials
+  - refresh_token
+  - urn:ietf:params:oauth:grant-type:device_code
+  response_types_supported:
+  - code
+  token_endpoint_auth_methods_supported:
+  - none
+  - client_secret_basic
+  - client_secret_post
+  applies_to: second identity tenant on the regie.ai domain (WorkOS AuthKit)
+  evidence: OIDC discovery document served at HTTP 200 from the company's own host.
+  documented_publicly: false
+summary:
+  public_developer_auth_documented: false
+  api_key_surface: true
+  oauth2_or_oidc_present: true
+  mtls: false
+  sso_providers:
+  - Auth0
+  - WorkOS AuthKit
+  docs: null
+  docs_note: >-
+    There is no public authentication page to link. help.regie.ai is the only documentation
+    surface and it now returns 403 behind a Cloudflare challenge, redirecting to /hc/restricted.

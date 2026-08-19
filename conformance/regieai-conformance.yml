@@ -1,19 +1,80 @@
-generated: '2026-07-21'
+generated: '2026-08-14'
 method: searched
-source: https://www.regie.ai/gdpr
+source: >-
+  https://www.regie.ai/gdpr (re-read 2026-08-14),
+  https://authenticate.regie.ai/.well-known/openid-configuration,
+  https://authkit.regie.ai/.well-known/openid-configuration
 standards:
 - id: soc2
   conforms: true
-  evidence: Regie.ai states it complies with SOC 2 security standards on its GDPR/compliance page.
+  evidence: >-
+    "The platform complies with several industry-recognized security standards, including SOC 2
+    and AppExchange security certifications." — https://www.regie.ai/gdpr, section 3.2. Claim
+    only; no report, audit period or auditor is named and there is no trust centre to request
+    one from.
 - id: gdpr
   conforms: true
-  evidence: Regie.ai publishes a GDPR compliance page describing sub-processor and data-processing posture.
+  evidence: >-
+    Dedicated GDPR page (last updated 2025-04-03) describing Regie.ai's role as data processor,
+    a fixed sub-processor list available on request, a 30-day breach-notification window, a
+    30-day data-subject-request window and 30-day return-or-delete on termination.
+- id: ccpa
+  conforms: partial
+  evidence: >-
+    "Regie.ai also acknowledges the importance of other data protection laws, such as the
+    California Consumer Privacy Act (CCPA)." — acknowledged on the GDPR page, but no CCPA
+    programme, disclosure or consumer-rights process is published.
+- id: eu-ai-act
+  conforms: partial
+  evidence: >-
+    "As a low-risk provider under the AI Act, Regie.ai is already preparing to ensure continued
+    compliance as the regulatory landscape evolves." — self-classification on the GDPR page.
+    Preparation stated, no conformity assessment published.
 - id: salesforce-appexchange-security
   conforms: true
-  evidence: Regie.ai references AppExchange security certification for its Salesforce integration.
+  evidence: AppExchange security certification referenced alongside SOC 2 on the GDPR page.
+- id: oidc
+  conforms: true
+  evidence: >-
+    Two Regie.ai-hosted identity tenants serve valid OpenID Connect discovery documents at HTTP
+    200 — authenticate.regie.ai (Auth0) and authkit.regie.ai (WorkOS AuthKit) — both advertising
+    authorization_code, refresh_token, client_credentials and device_code grants. This is the
+    only standard on this list verified by a machine-readable document rather than a prose claim.
+- id: oauth2
+  conforms: true
+  evidence: >-
+    Both identity tenants also serve RFC 8414 OAuth 2.0 Authorization Server Metadata at
+    /.well-known/oauth-authorization-server (HTTP 200). authenticate.regie.ai advertises PKCE
+    S256.
+- id: rfc9457
+  conforms: false
+  evidence: >-
+    Error bodies observed on Regie.ai's own hosts are a bespoke JSON envelope
+    ({"message","status","timestamp","path","response","name"}) served as application/json, not
+    application/problem+json. No Problem Details support.
+- id: iso27001
+  conforms: false
+  evidence: Not claimed anywhere on the public surface.
+- id: hipaa
+  conforms: false
+  evidence: Not claimed anywhere on the public surface.
+- id: pci-dss
+  conforms: false
+  evidence: Not claimed anywhere on the public surface.
 compliance_program:
   published: true
   url: https://www.regie.ai/gdpr
   certifications:
   - SOC 2
   - GDPR
+  - Salesforce AppExchange security review
+  trust_center: false
+  trust_center_note: >-
+    No trust centre. trust.regie.ai and security.regie.ai do not resolve; no Vanta/Drata/
+    SafeBase portal is linked from the site. The sub-processor list is "available upon request"
+    rather than published.
+  security_contact: ciso@regie.ai
+  security_contact_note: >-
+    Published on the GDPR page as the channel for data-subject access/change/delete requests.
+    It is a privacy contact, NOT a vulnerability-disclosure channel — no VDP, bug bounty,
+    security.txt or disclosure policy exists, so no VulnerabilityDisclosure artifact was written.

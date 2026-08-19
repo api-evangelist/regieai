@@ -1,0 +1,35 @@
+generated: '2026-08-14'
+method: probed
+source: >-
+  Live header inspection of https://mcp.regie.ai/, https://sales-prod-api.regie.ai/ and
+  https://www.regie.ai/ plus a search of every public Regie.ai surface (2026-08-14)
+limit_count: 0
+limits: []
+response_headers: []
+status_on_exhaustion: null
+note: >-
+  Regie.ai publishes no rate limits. There is no developer portal or API reference to carry
+  them, the pricing page quotes quotas in "AI + enrichment credits" rather than requests, and
+  no Regie.ai host returned a RateLimit-*, X-RateLimit-* or Retry-After header on an
+  unauthenticated response. The gated MCP server (mcp.regie.ai) and the first-party backends
+  return only 401s, so any limits they enforce are invisible without a workspace key. Recorded
+  as an honest zero, not an assumption that no limits exist.
+quota_model:
+  published: true
+  unit: AI + enrichment credits
+  source: https://www.regie.ai/pricing
+  note: >-
+    The only published consumption ceiling is a credit allowance attached to a seat tier —
+    120,000 credits (1,000 accounts / 4,000 contacts) per year on Force Multiplier Rep, with
+    Bronze/Silver/Gold/Platinum data packages above it. This is a commercial quota, not a
+    runtime request-rate limit, and carries no runtime signal an agent could read.
+evidence:
+- url: https://mcp.regie.ai/
+  status: 401
+  rate_limit_headers: none
+- url: https://sales-prod-api.regie.ai/
+  status: 200
+  rate_limit_headers: none
+- url: https://www.regie.ai/
+  status: 200
+  rate_limit_headers: none

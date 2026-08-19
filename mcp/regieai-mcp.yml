@@ -1,0 +1,91 @@
+generated: '2026-08-14'
+method: probed
+source: https://mcp.regie.ai/ (live HTTP probe, 2026-08-14)
+name: Regie.ai MCP Server
+status: live-gated
+deployment:
+  mode: remote
+  endpoint: https://mcp.regie.ai/mcp
+  install: null
+  package: null
+  auth: api-key
+  verified: probed
+evidence:
+  fetched: '2026-08-14'
+  probes:
+  - url: https://mcp.regie.ai/
+    method: GET
+    status: 401
+    body: '{"message":"Missing required API key","status":401,...,"name":"UnauthorizedException"}'
+  - url: https://mcp.regie.ai/mcp
+    method: POST
+    request: '{"jsonrpc":"2.0","id":1,"method":"tools/list"}'
+    headers: 'Accept: application/json, text/event-stream'
+    status: 401
+    body: '{"message":"Missing required API key",...}'
+  - url: https://mcp.regie.ai/mcp
+    method: POST
+    request: '{"jsonrpc":"2.0","id":1,"method":"tools/list"}'
+    headers: 'x-api-key: <placeholder>'
+    status: 401
+    body: '{"message":"Missing required user ID or workspace ID",...}'
+    note: >-
+      Supplying an x-api-key header advances the authorization chain to a second check,
+      which proves the host authenticates on an API key plus user-id and workspace-id
+      identifiers rather than rejecting all traffic generically.
+  - url: https://mcp.regie.ai/.well-known/oauth-protected-resource
+    status: 401
+  - url: https://mcp.regie.ai/.well-known/oauth-authorization-server
+    status: 401
+server:
+  runtime: Express (x-powered-by header)
+  tls_certificate: 'Amazon RSA 2048 M04, CN=*.regie.io, SAN: *.regie.io, *.regie.ai'
+  ownership: >-
+    mcp.regie.ai is a DNS record under regie.ai, the company's own registered domain, served
+    on the same Amazon-issued wildcard certificate that covers *.regie.ai. Ownership is not
+    in question; what is unverified is the tool surface behind the key.
+tools: []
+tools_note: >-
+  NOT ENUMERATED. tools/list returns HTTP 401 to anonymous callers, so the real inputSchemas
+  are auth-gated and require an authenticated introspection with a Regie.ai workspace API key.
+  No tool list has been guessed, derived or invented. Regie.ai publishes no OpenAPI, so there
+  is also no operation set from which a candidate tool list could honestly be derived.
+caveats:
+- >-
+  Regie.ai does not document this server anywhere on its public surface. The marketing site
+  (www.regie.ai), the integrations page, the changelog and the sitemap contain no reference to
+  MCP, and the help centre that would normally carry it (help.regie.ai) now 302s to
+  /hc/restricted behind a Cloudflare bot challenge, so it is customer-only.
+- >-
+  The MCP protocol handshake could not be completed, so protocol version, transport
+  (streamable HTTP vs SSE) and capabilities are unconfirmed. The endpoint path recorded above
+  is the conventional /mcp path on a host explicitly named "mcp"; treat it as probed-and-gated,
+  not as a documented, published integration path.
+related_surfaces:
+  note: >-
+    Regie.ai runs a fleet of first-party backend services on its own domain, all of which
+    require an Authorization header and none of which publish a spec. They are recorded here as
+    context for the MCP server, not as public APIs.
+  hosts:
+  - host: sales-prod-api.regie.ai
+    root_status: 200
+    root_body: health check ({"status":"OK","data":{"status":"ok","info":{"database":{"status":"up"}}}})
+    spec_paths_status: 401
+  - host: agents-api.regie.ai
+    app_name: agents
+    root_status: 200
+    spec_paths_status: 401
+  - host: dialer-api.regie.ai
+    app_name: dialer
+    root_status: 200
+    spec_paths_status: 401
+  - host: transcript-api.regie.ai
+    app_name: transcript
+    root_status: 200
+    spec_paths_status: 401
+  - host: user-management.regie.ai
+    root_status: 200
+    spec_paths_status: 401
+  - host: marketing-api.regie.ai
+    root_status: 200
+    spec_paths_status: 401

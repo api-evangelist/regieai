@@ -1,21 +1,120 @@
-generated: '2026-07-21'
+generated: '2026-08-14'
 method: searched
 source: https://www.regie.ai/changelog
+mirror: https://www.regie.ai/updates
 scheme: dated
 product: RegieOne
+versioned: false
+breaking_changes_flagged: false
+note: >-
+  Product changelog, not an API changelog. Regie.ai publishes no API version scheme and flags
+  no breaking changes; entries are grouped into "Fixes" and "Improvements" and tagged by
+  product area (AI Agents, Dialer, Integrations, Analytics). Full listing re-read 2026-08-14;
+  25 entries published, most recent 2026-05-28.
+entry_count: 25
+current_version: null
+most_recent: '2026-05-28'
 entries:
 - date: '2026-05-28'
+  title: Safer Salesforce Trigger Execution
+  url: https://www.regie.ai/changelog/safer-salesforce-trigger-execution
+  areas:
+  - Integrations
   highlights:
-  - Safer Salesforce trigger execution — prevents re-firing triggers for finished prospects, stopping incorrect status reversals in Salesforce.
-  - Faster agent launch and prospect touch visibility — new agents prioritize task generation; prospect pages show total touches instead of averages.
-  - Shareable agent drafts and audit logs — read-only draft sharing for team review before publishing, with comprehensive audit logging of all agent edits.
+  - Triggers now check for a terminal state before firing, so finished and removed prospects keep their correct Salesforce Lead Status instead of being flipped back from Nurture to Working by a delayed activity update.
+- date: '2026-05-28'
+  title: Faster Agent Launch + Prospect Touch Visibility
+  url: https://www.regie.ai/changelog/faster-agent-launch-prospect-touch-visibility
+  areas:
+  - AI Agents
+  highlights:
+  - Newly launched agents prioritize task generation, improving time-to-first-task.
+  - Prospect page inside an agent shows total touches instead of average touches.
+- date: '2026-05-28'
+  title: Shareable Agent Drafts + Audit Logs
+  url: https://www.regie.ai/changelog/shareable-agent-drafts-audit-logs
+  areas:
+  - AI Agents
+  highlights:
+  - Read-only agent drafts can be shared for pre-publish review of prompt and Salesforce field changes.
+  - Stronger draft state with audit logging across all agent edits.
 - date: '2026-05-26'
+  title: Auto-Open Company Websites + Inbound Call Improvements
+  url: https://www.regie.ai/changelog/auto-open-company-websites-inbound-call-improvements
+  areas:
+  - Dialer
   highlights:
-  - Auto-open company websites on dialer connection.
-  - Enhanced inbound call handling with disposition support and call-history accuracy.
+  - Dialer can auto-open the prospect's company website on connect, with an in-call website shortcut.
+  - Inbound calls support disposition edits; no-answer and forwarded calls log correctly and stay in call history.
 - date: '2026-05-12'
+  title: Pickup-Rate Rotation for All + Competitor Activity Dashboard
+  url: https://www.regie.ai/changelog/pickup-rate-rotation-competitor-activity
+  areas:
+  - Dialer
+  - Analytics
   highlights:
-  - Pickup-rate outbound number rotation enabled universally.
-  - Competitor activity dashboard classifying calls by dialer source (Regie, Outreach, Nooks, etc.).
-  - One-off email and LinkedIn tasks from the action bar without sequences.
-  - "Ask Regie in-app AI chat generally available workspace-wide with context awareness."
+  - Pickup-rate-based outbound number rotation enabled across every dialer-enabled workspace.
+  - Competitor Activity dashboard classifies CRM-logged calls by dialer source (Regie, Outreach, Nooks, ConnectAndSell, SalesLoft).
+  - Prospect-side jitter buffer and a retuned XGBoost answering-machine-detection model.
+- date: '2026-05-12'
+  title: One-Off Tasks from the Action Bar
+  url: https://www.regie.ai/changelog/one-off-tasks-action-bar
+- date: '2026-05-12'
+  title: Ask Regie Generally Available
+  url: https://www.regie.ai/changelog/ask-regie-generally-available
+  highlights:
+  - In-app AI chat generally available workspace-wide with context awareness.
+- date: '2026-04-30'
+  title: Enrichment Credit Usage Export
+  url: https://www.regie.ai/changelog/enrichment-credit-usage-export
+- date: '2026-04-15'
+  title: Call Interval, Timezone and Scheduled Callbacks
+  url: https://www.regie.ai/changelog/call-interval-timezone-scheduled-callbacks
+- date: '2026-04-10'
+  title: Custom AI Scorecards + Task Batching
+  url: https://www.regie.ai/changelog/custom-ai-scorecards-task-batching
+- date: '2026-04-02'
+  title: UI Refresh — New Interface Themes
+  url: https://www.regie.ai/changelog/ui-refresh-new-interface-themes
+- date: '2026-04-01'
+  title: Mailbox Rotation
+  url: https://www.regie.ai/changelog/mailbox-rotation
+- date: '2026-02-18'
+  title: Top Performers Dashboard
+  url: https://www.regie.ai/changelog/top-performers-dashboard
+- date: '2026-02-18'
+  title: Analytics Leaderboard Trend Analysis
+  url: https://www.regie.ai/changelog/analytics-leaderboard-trend-analysis
+- date: '2026-02-18'
+  title: Priority Score
+  url: https://www.regie.ai/changelog/priority-score
+- date: '2026-01-15'
+  title: Demandbase Integration
+  url: https://www.regie.ai/changelog/demandbase-integration
+- date: '2025-12-16'
+  title: Attribution Page
+  url: https://www.regie.ai/changelog/attribution-page
+- date: '2025-12-15'
+  title: Dialer Disposition Triggers and Enhancements
+  url: https://www.regie.ai/changelog/dialer-disposition-triggers-enhancements
+- date: '2025-12-01'
+  title: AI Job Title Suggestions
+  url: https://www.regie.ai/changelog/ai-job-title-suggestions
+- date: '2025-12-01'
+  title: Phone Number Enrichment Waterfall
+  url: https://www.regie.ai/changelog/phone-number-enrichment-waterfall
+- date: '2025-11-06'
+  title: Sidebar Navigation Redesign
+  url: https://www.regie.ai/changelog/sidebar-navigation-redesign
+- date: '2025-11-04'
+  title: Catch-All Email Exclusion
+  url: https://www.regie.ai/changelog/catch-all-email-exclusion
+- date: '2025-09-18'
+  title: Improved CRM Fields Mapping
+  url: https://www.regie.ai/changelog/improved-crm-fields-mapping
+- date: '2025-08-06'
+  title: List Report Changelogs
+  url: https://www.regie.ai/changelog/list-report-changelogs
+- date: '2025-06-10'
+  title: Static Step Analytics and Sequence Exclusivity
+  url: https://www.regie.ai/changelog/static-step-analytics-sequence-exclusivity

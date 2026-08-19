@@ -1,0 +1,216 @@
+generated: '2026-08-14'
+method: probed
+source: live HTTP probes of every Regie.ai host discovered via crt.sh, apis.yml and the app.regie.ai bundle
+note: >-
+  Probed seven .well-known paths across seven Regie.ai hosts. Two identity hosts serve real
+  documents: authenticate.regie.ai (an Auth0 tenant) and authkit.regie.ai (a WorkOS AuthKit
+  tenant) both publish OpenID Connect / OAuth 2.0 Authorization Server metadata. Every other
+  path is absent. Two false-positive shapes were recorded and rejected: app.regie.ai answers
+  200 with the 5,155-byte React SPA shell for every /.well-known/* path (HTML, not a document),
+  and mcp.regie.ai / agents-api.regie.ai / sales-prod-api.regie.ai answer 401 to every path
+  because the whole host sits behind an API key.
+hosts:
+- host: www.regie.ai
+  paths:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
+  - path: /.well-known/agent.json
+    status: 404
+    file: null
+- host: authenticate.regie.ai
+  role: Auth0 identity tenant used by app.regie.ai (login/callback)
+  paths:
+  - path: /.well-known/openid-configuration
+    status: 200
+    content_type: application/json
+    file: well-known/regieai-authenticate-openid-configuration.json
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    content_type: application/json
+    file: null
+    note: byte-identical to the openid-configuration document; not stored twice
+  - path: /.well-known/jwks.json
+    status: 200
+    content_type: application/json
+    file: null
+    note: signing keys, not stored
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
+  - path: /.well-known/agent.json
+    status: 404
+    file: null
+- host: authkit.regie.ai
+  role: WorkOS AuthKit identity tenant
+  paths:
+  - path: /.well-known/openid-configuration
+    status: 200
+    content_type: application/json
+    file: well-known/regieai-authkit-openid-configuration.json
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    content_type: application/json
+    file: null
+    note: OAuth AS metadata subset of the same tenant; not stored twice
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 404
+    file: null
+  - path: /.well-known/agent.json
+    status: 404
+    file: null
+- host: app.regie.ai
+  role: customer web application (React SPA)
+  paths:
+  - path: /.well-known/security.txt
+    status: 200
+    content_type: text/html
+    file: null
+    note: SPA catch-all — returns the application HTML shell, NOT a security.txt. Treated as a miss.
+  - path: /.well-known/openid-configuration
+    status: 200
+    content_type: text/html
+    file: null
+    note: SPA catch-all HTML shell. Treated as a miss.
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    content_type: text/html
+    file: null
+    note: SPA catch-all HTML shell. Treated as a miss.
+  - path: /.well-known/api-catalog
+    status: 200
+    content_type: text/html
+    file: null
+    note: SPA catch-all HTML shell. Treated as a miss.
+  - path: /.well-known/ai-plugin.json
+    status: 200
+    content_type: text/html
+    file: null
+    note: SPA catch-all HTML shell. Treated as a miss.
+  - path: /.well-known/agent-card.json
+    status: 200
+    content_type: text/html
+    file: null
+    note: SPA catch-all HTML shell. Treated as a miss — no AgentCard was written.
+  - path: /.well-known/agent.json
+    status: 200
+    content_type: text/html
+    file: null
+    note: SPA catch-all HTML shell. Treated as a miss.
+- host: mcp.regie.ai
+  role: Model Context Protocol server (API-key gated)
+  paths:
+  - path: /.well-known/oauth-authorization-server
+    status: 401
+    file: null
+  - path: /.well-known/oauth-protected-resource
+    status: 401
+    file: null
+  - path: /.well-known/security.txt
+    status: 401
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 401
+    file: null
+  - path: /.well-known/api-catalog
+    status: 401
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 401
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 401
+    file: null
+  - path: /.well-known/agent.json
+    status: 401
+    file: null
+- host: agents-api.regie.ai
+  role: backend service (API-key gated)
+  paths:
+  - path: /.well-known/security.txt
+    status: 401
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 401
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 401
+    file: null
+  - path: /.well-known/api-catalog
+    status: 401
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 401
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 401
+    file: null
+  - path: /.well-known/agent.json
+    status: 401
+    file: null
+- host: sales-prod-api.regie.ai
+  role: primary application backend (API-key gated)
+  paths:
+  - path: /.well-known/security.txt
+    status: 401
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 401
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 401
+    file: null
+  - path: /.well-known/api-catalog
+    status: 401
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 401
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 401
+    file: null
+  - path: /.well-known/agent.json
+    status: 401
+    file: null
+summary:
+  hosts_probed: 7
+  paths_probed: 51
+  real_documents: 2
+  security_txt: false
+  agent_card: false
+  api_catalog: false
+  ai_plugin: false
+  openid_configuration: true

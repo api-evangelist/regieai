@@ -1,0 +1,126 @@
+generated: '2026-08-14'
+method: searched
+source: https://www.regie.ai/pricing
+currency: USD
+billing_note: >-
+  All list prices are per user and quoted against an annual contract with a seat minimum.
+  Every tier routes to a "Talk to sales" contact form; there is no self-serve checkout and no
+  published API-usage or per-call pricing. Quotas are denominated in "AI + enrichment credits".
+plan_count: 3
+plans:
+- name: AI SEP
+  price: 180
+  currency: USD
+  unit: per user
+  period: month
+  contract: annual
+  minimum_seats: 10
+  positioning: Sales Engagement Platform for modern outbound execution
+  included_quota: null
+  included_quota_note: no AI or enrichment credits included at this tier
+  overage: null
+  includes:
+  - Static and dynamic sequencing agents
+  - Prompt-based steps and BYO list
+  - 1st and 3rd party intent prioritization
+  - Power dialer + Sales Floor
+  - AI messaging, call coaching & voicemails
+  - Power socializer
+  - CRM and SEP integration
+- name: Force Multiplier Rep
+  price: 499
+  currency: USD
+  unit: per user
+  period: month
+  contract: annual
+  minimum_seats: 5
+  positioning: AI-orchestrated prospecting to increase coverage without losing precision
+  included_quota:
+    credits: 120000
+    credit_type: AI + enrichment credits
+    accounts: 1000
+    contacts: 4000
+    period: year
+  overage: purchased via the add-on Data Packages below
+  includes:
+  - Everything in AI SEP
+  - Custom enrichment waterfalls
+  - Bounce & job verification checks
+  - Parallel dialer (up to 9 lines)
+  - 10 mailboxes + domains with warming
+  - Research agents + Reasons to Engage
+- name: Enterprise
+  price: null
+  price_note: Contact us / Talk to sales
+  currency: USD
+  unit: per user
+  period: custom
+  contract: custom
+  minimum_seats: null
+  positioning: Customized data, infrastructure, and support for enterprise teams
+  included_quota: custom AI + data credit packages
+  includes:
+  - Everything in Force Multiplier Rep
+  - Flexible seat bundles across SDRs and AEs
+  - Dedicated IP/domain strategy + inbox warming programs
+  - Dedicated customer success + onboarding support
+  - Professional services (playbook design, campaign build, optimization)
+add_ons:
+- name: Parallel Dialer
+  price: 1800
+  currency: USD
+  unit: per user
+  period: year
+  note: Up to 9 lines, Sales Floor included, AI voicemails and coaching
+- name: Mailbox Rotation (5 mailboxes)
+  price: 50
+  currency: USD
+  unit: per user
+  period: month
+  note: Includes domains and 2 months warming
+- name: Mailbox Rotation (10 mailboxes)
+  price: 100
+  currency: USD
+  unit: per user
+  period: month
+  note: Includes domains and 2 months warming
+- name: Data Package — Bronze
+  price: null
+  quota:
+    credits: 525000
+    accounts: 5000
+    contacts: 20000
+  note: price not published
+- name: Data Package — Silver
+  price: null
+  quota:
+    credits: 1190000
+    accounts: 10000
+    contacts: 50000
+  note: price not published
+- name: Data Package — Gold
+  price: null
+  quota:
+    credits: 2640000
+    accounts: 20000
+    contacts: 120000
+  note: price not published
+- name: Data Package — Platinum
+  price: null
+  quota:
+    credits: 6080000
+    accounts: 40000
+    contacts: 300000
+  note: price not published
+- name: Professional services (onboarding, training and best practices)
+  price: null
+  note: Contact us for pricing
+api_pricing:
+  published: false
+  note: >-
+    Regie.ai publishes no API, MCP or per-request pricing. The only machine-callable surface
+    found is mcp.regie.ai, which is workspace-API-key gated and undocumented; access to it is
+    not named on the pricing page or in any published tier.
+free_tier: false
+trial: false
+self_serve: false
