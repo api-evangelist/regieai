@@ -124,3 +124,36 @@ api_pricing:
 free_tier: false
 trial: false
 self_serve: false
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - negotiated
+  - seat
+  units:
+  - seat
+  plans:
+  - name: AI SEP
+    access: other
+    model: seat
+    model_how: derived
+    units:
+    - seat
+    periods:
+    - month
+  - name: Force Multiplier Rep
+    access: other
+    model: seat
+    model_how: derived
+    units:
+    - seat
+    periods:
+    - month
+  - name: Enterprise
+    access: other
+    model: negotiated
+    model_how: derived
+    units:
+    - seat
+    periods:
+    - term
