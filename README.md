@@ -64,6 +64,111 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Regie.ai is a company surfaced as a portfolio company of scale-venture-partners and added to the API Evangelist network as a stub for enrichment. Sector: ai-apps. This profile is a lead awaiting the enrichment pipeline.
+Regie.ai is an AI-powered sales engagement platform that helps B2B sales teams scale outbound without adding headcount. Its flagship product, RegieOne, unifies AI agents with human reps to automate prospecting: lead research and enrichment, personalized multichannel messaging (email, phone, LinkedIn), AI dialing (power and parallel), dynamic lead prioritization from intent signals, sequence orchestration, and CRM integration (Salesforce, Outreach). It serves SDRs, account executives, sales leaders, and RevOps teams. Regie.ai is backed by Scale Venture Partners.
 
-Backed by: scale-venture-partners — https://www.regie.ai/
+**Areas:** Company · Ai Apps · Sales Engagement · Sales AI · Outbound · Prospecting · Revenue Operations · AI Agents
+
+## Regie.ai on APIs.io
+
+Everything profiled for Regie.ai is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/regieai/](https://apis.io/providers/regieai/)** — or go straight to one of the APIs or properties below.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [Regie.ai MCP server (probed, API-key gated)](https://apis.io/servers/regieai/regie-ai-mcp-server-probed-api-key-gated/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Regieai Authentication](https://apis.io/security/regieai/regieai-authentication/)
+- [Regieai Domain Security](https://apis.io/security/regieai/regieai-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Regieai Plans Pricing](https://apis.io/plans/regieai/regieai-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Regieai Rate Limits](https://apis.io/rate-limits/regieai/regieai-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.regie.ai/)
+- [Documentation](https://help.regie.ai/)
+- [Getting started](https://www.regie.ai/getting-started)
+- [Pricing](https://www.regie.ai/pricing)
+- [Sign up](https://app.regie.ai/signin)
+- [Support](https://help.regie.ai/)
+- [Changelog](https://www.regie.ai/changelog)
+- [Blog](https://www.regie.ai/blog)
+- [Compliance](https://www.regie.ai/gdpr)
+- [Terms of service](https://www.regie.ai/terms-and-conditions)
+- [Privacy policy](https://www.regie.ai/privacy-policy)
+- [GitHub](https://github.com/REGIE-io)
+
+## API Evangelist rating
+
+**Kin Score 32.8** — thin · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 51.7 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 18.4 |
+| Developer ergonomics | 33.3 |
+| Access clarity | 71.1 |
+
+**Agent readiness 8.5** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | documented (partial credit) |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | na |
+
+**Regulatory alignment 29.4** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/regieai/](https://apis.io/providers/regieai/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Regie.ai: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/regieai/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
